@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Welcome, <span id="recruiter-name"></span></h1>
+
+        <!-- Job Posting Form -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h2>Post a New Job</h2>
+            </div>
+            <div class="card-body">
+                <form id="job-form">
+                    <div class="form-group">
+                        <label for="description">Job Description:</label>
+                        <textarea id="description" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="pdf">Upload Job PDF:</label>
+                        <input type="file" id="pdf" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Post Job</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- List of Jobs -->
+        <h2 class="mt-5">Your Posted Jobs</h2>
+        <div id="jobs" class="row"></div>
+
+        <nav id="pagination-nav" class="mt-4">
+            <ul class="pagination"></ul>
+        </nav>
+    </div>
+
+    <script src="js/recruiter.js"></script>
+</body>
+</html>
