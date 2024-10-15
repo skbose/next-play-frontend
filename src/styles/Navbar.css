@@ -1,0 +1,79 @@
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+/* Logo icon styling */
+.icon {
+    /* Set a width */
+    width: 380px;
+    margin-right: 20px;
+    /* Add more space between the icon and buttons */
+    object-fit: contain;
+    /* Ensure the image scales well */
+}
+
+/* Button container styling */
+.buttons {
+    display: flex;
+    gap: 15px;
+    /* Space between buttons */
+}
+
+/* Button styling */
+.btn {
+    background-color: #309bae;
+    /* Teal color for buttons */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    /* Rounded corners */
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #247e86;
+    /* Darker teal for hover effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    /* Enhanced shadow on hover */
+}
+
+/* Remove outline on focus */
+.btn:focus {
+    outline: none;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        /* Stack items vertically */
+        padding: 10px;
+        /* Adjust padding for mobile */
+    }
+
+    .navbar-icon {
+        margin: 0 auto;
+        /* Center the logo */
+    }
+
+    .btn {
+        width: 100%;
+        /* Full-width buttons on mobile */
+        margin-top: 10px;
+        /* Space between buttons */
+        padding: 10px;
+        /* Adjust padding for mobile */
+    }
+}
