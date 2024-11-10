@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ login }) => {
     const [userId, setUserId] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -26,13 +26,17 @@ const Login = () => {
             });
 
             if (response.ok) {
-                const data = await response.json(); // Assuming the response contains user_type
+                const data = await response.json();
 
-                // Store token and user type in localStorage (or state management)
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('userType', data.user_type);
+                // Store tokens and user type in localStorage
+                localStorage.setItem('accessToken', data.access); // JWT access token
+                localStorage.setItem('refreshToken', data.refresh); // JWT refresh token
+                localStorage.setItem('userType', data.user_type); // recruiter or candidate
+                localStorage.setItem('username', data.username); // Store the recruiter name (username)
 
-                alert('Login successful!');
+                login();
+
+                alert(`Login successful! Welcome, ${data.username}.`);
 
                 // Redirect based on user type
                 if (data.user_type === 'candidate') {
@@ -76,14 +80,13 @@ const Login = () => {
                 </div>
                 <button type="submit" className="login-btn">Login</button>
                 <div className="account">
-                    <p >
-                        Don't have an CampusHire account?
+                    <p>
+                        Don't have a CampusHire account?
                     </p>
                     <Link to="/register">
                         <p className="login1" style={{ marginLeft: '5px', color: '#309bae', textDecoration: 'underline' }}>
                             Sign Up
                         </p>
-
                     </Link>
                 </div>
             </form>

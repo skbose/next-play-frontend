@@ -1,0 +1,65 @@
+body {
+    background-color: #FFFFFF;
+    font-family: 'Arial', sans-serif;
+}
+
+.jobs-table {
+    width: 80%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+.jobs-table th,
+.jobs-table td {
+    border: 1px solid #ccc;
+    /* Light grey border */
+    padding: 10px;
+    /* Space inside cells */
+    text-align: left;
+    /* Left-align text */
+}
+
+.jobs-table th {
+    background-color: #309bae;
+    /* Teal background for header */
+    color: #FFFFFF;
+    /* White text */
+    font-weight: bold;
+    /* Bold text */
+}
+
+.jobs-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+    /* Light grey background for even rows */
+}
+
+.jobs-table tr:hover {
+    background-color: #e0f7fa;
+    /* Light teal background on hover */
+}
+
+.view-applications-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-radius: 10px;
+    background-color: #309bae;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.view-applications-btn:hover {
+    background-color: #247e86;
+}
+
+@media (max-width: 600px) {
+    .view-applications-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
