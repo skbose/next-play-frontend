@@ -70,9 +70,6 @@ const RecruiterPortal = () => {
         navigate('/view-jobs', { state: { username } });  // Navigate to the "View Jobs" page
     };
 
-    const handleViewApplications = () => {
-        navigate('/view-applications', { state: { username } });  // Navigate to the "View Applications" page
-    };
 
     return (
         <div className="recruiter-container">
@@ -80,9 +77,6 @@ const RecruiterPortal = () => {
             <div class="button-container">
                 <button onClick={handleViewJobs} className="view-jobs-btn">
                     View Jobs
-                </button>
-                <button onClick={handleViewApplications} className="view-applications-btn">
-                    View Applications
                 </button>
             </div>
             <form onSubmit={handleSubmit} className="recruiter-form">

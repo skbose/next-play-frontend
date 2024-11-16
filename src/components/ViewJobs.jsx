@@ -55,7 +55,7 @@ const ViewJobs = () => {
     };
 
     return (
-        <div className="recruiter-container">
+        <div className="recruiter-table">
             <h1 className="welcome-message">Welcome, {username}</h1>
             <h2>Job Listings</h2>
             {jobs.length === 0 ? (
@@ -67,7 +67,7 @@ const ViewJobs = () => {
                             <th>Job Title</th>
                             <th>Description</th>
                             <th>Attachment</th>
-                            <th>Jobs</th>
+                            <th>Job Applications</th>
                         </tr>
                     </thead>
                     <tbody>

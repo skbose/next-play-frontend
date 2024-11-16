@@ -5,48 +5,39 @@
     align-items: center;
     padding: 15px 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow */
+    background-color: #fff;
 }
 
 /* Logo icon styling */
 .icon {
-    /* Set a width */
-    width: 250px;
+    width: 200px;
     margin-right: 20px;
-    /* Add more space between the icon and buttons */
     object-fit: contain;
-    /* Ensure the image scales well */
 }
 
 /* Button container styling */
 .buttons {
     display: flex;
     gap: 15px;
-    /* Space between buttons */
 }
 
 /* Button styling */
 .btn {
     background-color: #309bae;
-    /* Teal color for buttons */
     color: white;
     border: none;
     border-radius: 25px;
-    /* Rounded corners */
     padding: 12px 24px;
     cursor: pointer;
     font-size: 18px;
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Soft shadow for depth */
 }
 
 /* Button hover effect */
 .btn:hover {
     background-color: #247e86;
-    /* Darker teal for hover effect */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    /* Enhanced shadow on hover */
 }
 
 /* Remove outline on focus */
@@ -54,26 +45,44 @@
     outline: none;
 }
 
-/* Mobile responsive styles */
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .icon {
+        width: 150px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
 @media (max-width: 600px) {
     .navbar {
         flex-direction: column;
-        /* Stack items vertically */
+        align-items: flex-start;
         padding: 10px;
-        /* Adjust padding for mobile */
     }
 
-    .navbar-icon {
-        margin: 0 auto;
-        /* Center the logo */
+    .icon {
+        width: 120px;
+        margin: 0 auto 10px;
+        /* Center the logo with margin */
+    }
+
+    .buttons {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .btn {
         width: 100%;
-        /* Full-width buttons on mobile */
-        margin-top: 10px;
-        /* Space between buttons */
-        padding: 10px;
-        /* Adjust padding for mobile */
+        padding: 12px;
+        text-align: center;
     }
 }

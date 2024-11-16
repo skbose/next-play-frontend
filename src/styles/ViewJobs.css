@@ -1,65 +1,114 @@
 body {
     background-color: #FFFFFF;
     font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.recruiter-table {
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
 }
 
 .jobs-table {
-    width: 80%;
-    margin: 20px 0;
+    width: 100%;
     border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 16px;
 }
 
 .jobs-table th,
 .jobs-table td {
     border: 1px solid #ccc;
-    /* Light grey border */
     padding: 10px;
-    /* Space inside cells */
     text-align: left;
-    /* Left-align text */
 }
 
 .jobs-table th {
     background-color: #309bae;
-    /* Teal background for header */
-    color: #FFFFFF;
-    /* White text */
+    color: white;
     font-weight: bold;
-    /* Bold text */
 }
 
 .jobs-table tr:nth-child(even) {
     background-color: #f2f2f2;
-    /* Light grey background for even rows */
 }
 
 .jobs-table tr:hover {
     background-color: #e0f7fa;
-    /* Light teal background on hover */
+}
+
+.jobs-table a {
+    color: #309bae;
+    text-decoration: none;
+}
+
+.jobs-table a:hover {
+    text-decoration: underline;
 }
 
 .view-applications-btn {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-radius: 10px;
+    padding: 8px 16px;
+    border-radius: 5px;
     background-color: #309bae;
     color: white;
-    font-size: 16px;
-    text-align: center;
+    font-size: 14px;
     cursor: pointer;
     border: none;
     transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
 }
 
 .view-applications-btn:hover {
     background-color: #247e86;
 }
 
+@media (max-width: 1024px) {
+    .recruiter-table {
+        width: 90%;
+    }
+
+    .jobs-table {
+        font-size: 14px;
+    }
+
+    .view-applications-btn {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .recruiter-table {
+        width: 95%;
+    }
+
+    .jobs-table th,
+    .jobs-table td {
+        padding: 8px;
+    }
+
+    .view-applications-btn {
+        padding: 5px 10px;
+    }
+}
+
 @media (max-width: 600px) {
+    .recruiter-table {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .jobs-table {
+        font-size: 12px;
+    }
+
     .view-applications-btn {
         width: 100%;
-        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 12px;
     }
 }
