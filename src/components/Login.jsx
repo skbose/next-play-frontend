@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import { Link } from 'react-router-dom';
-import getHomeRoute from './Navbar';
+import logout from '../utils/auth';
 
 const Login = ({ login }) => {
     const [userId, setUserId] = useState('');
@@ -42,7 +42,15 @@ const Login = ({ login }) => {
 
                 // Redirect based on user type
                 if (data.user_type === 'candidate') {
-                    navigate('/student-portal');
+                    const redirectUrl = localStorage.getItem('redirectAfterLogin');
+                    if (redirectUrl) {
+                        navigate('/student-portal');
+                    } else {
+                        // logout and redirect to home
+                        logout();
+                        navigate('/');
+                    }
+
                 } else if (data.user_type === 'recruiter') {
                     navigate('/recruiter-portal');
                 }
