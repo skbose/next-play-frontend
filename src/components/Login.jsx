@@ -34,7 +34,8 @@ const Login = ({ login }) => {
                 localStorage.setItem('userType', data.user_type); // recruiter or candidate
                 localStorage.setItem('username', data.username); // Store the recruiter name (username)
 
-                login();
+                // Call login function with user type
+                login(data.user_type);
 
                 alert(`Login successful! Welcome, ${data.username}.`);
 

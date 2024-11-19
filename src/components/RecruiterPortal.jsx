@@ -67,7 +67,13 @@ const RecruiterPortal = () => {
     };
 
     const handleViewJobs = () => {
-        navigate('/view-jobs', { state: { username } });  // Navigate to the "View Jobs" page
+        const token = localStorage.getItem('accessToken');
+        navigate('/view-jobs', { 
+            state: { 
+                username,
+                token 
+            } 
+        });
     };
 
 
@@ -76,19 +82,19 @@ const RecruiterPortal = () => {
             <h1 className="welcome-message">Welcome, {username}</h1>
             <div class="button-container">
                 <button onClick={handleViewJobs} className="view-jobs-btn">
-                    View Jobs
+                    View Created Jobs
                 </button>
             </div>
             <form onSubmit={handleSubmit} className="recruiter-form">
                 <div className="recruiter-form-group">
-                    <label>Email to be send:</label>
-                    <input
+                    <label>Email body:</label>
+                    <textarea
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                         className="recruiter-input-field"
-                    />
+                    ></textarea>
                 </div>
 
                 <div className="recruiter-form-group">

@@ -90,3 +90,10 @@ h1 {
     background-color: #247e86;
     /* Darker teal for the hover state */
 }
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
