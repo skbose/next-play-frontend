@@ -9,6 +9,8 @@ import RecruiterPortal from './components/RecruiterPortal';
 import ViewJobs from './components/ViewJobs';
 import ViewApplications from './components/ViewApplications';
 import Navbar from './components/Navbar'; // Import Navbar component
+import NotFound from './components/NotFound';
+import JobDetails from './components/JobDetails';
 import './App.css';
 
 function App() {
@@ -35,10 +37,12 @@ function App() {
           <Route path="/login" element={<Login login={login} />} /> {/* Pass login function */}
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/student-portal" element={<StudentPortal />} />
+          <Route path="/student-portal/:jobId" element={<StudentPortal />} />
           <Route path="/recruiter-portal" element={<RecruiterPortal />} /> {/* Recruiter Portal */}
           <Route path="/view-jobs" element={<ViewJobs />} />
           <Route path="/view-applications" element={<ViewApplications />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/view-job/:jobId" element={<JobDetails />} />
         </Routes>
       </div>
     </Router>

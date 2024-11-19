@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import { Link } from 'react-router-dom';
+import getHomeRoute from './Navbar';
 
 const Login = ({ login }) => {
     const [userId, setUserId] = useState('');
@@ -44,6 +45,13 @@ const Login = ({ login }) => {
                     navigate('/student-portal');
                 } else if (data.user_type === 'recruiter') {
                     navigate('/recruiter-portal');
+                }
+
+                // After successful login
+                const redirectUrl = localStorage.getItem('redirectAfterLogin');
+                if (redirectUrl) {
+                    localStorage.removeItem('redirectAfterLogin'); // Clean up
+                    navigate(redirectUrl);
                 }
             } else {
                 const errorData = await response.json();
