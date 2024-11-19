@@ -1,0 +1,49 @@
+body {
+    background-color: #FFFFFF;
+    font-family: 'Arial', sans-serif;
+}
+
+.applications-container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.applications-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.applications-table th,
+.applications-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.applications-table th {
+    background-color: #309bae;
+    /* Teal background for header */
+    color: white;
+    /* White text */
+    font-weight: bold;
+}
+
+.applications-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+    /* Light grey background for even rows */
+}
+
+.applications-table tr:hover {
+    background-color: #e0f7fa;
+    /* Light teal background on hover */
+}
+
+.applications-table a {
+    color: #309bae;
+    text-decoration: none;
+}
+
+.applications-table a:hover {
+    text-decoration: underline;
+}
