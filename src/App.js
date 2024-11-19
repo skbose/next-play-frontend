@@ -21,7 +21,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router> {/* Wrap your application with Router */}
       <div className="App">
         <Navbar isAuthenticated={isAuthenticated} logout={logout} /> {/* Use Navbar component */}
         <Routes>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Register.css'; // Import the CSS file for styling
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [userId, setUserId] = useState('');
@@ -10,6 +10,7 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [selectedUserType, setSelectedUserType] = useState(''); // State to store selected user type
     const [showForm, setShowForm] = useState(false); // State to control form visibility
+    const navigate = useNavigate();
 
     const handleUserTypeSelection = (type) => {
         // For student type, set the user_type as 'candidate' if that's expected by backend
@@ -49,6 +50,7 @@ const Register = () => {
             } else {
                 const data = await response.json();
                 alert(`Registration successful for user: ${data.name}`);
+                navigate('/');
             }
         } catch (error) {
             console.error('Error during registration:', error);
