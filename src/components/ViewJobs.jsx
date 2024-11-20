@@ -56,8 +56,7 @@ const ViewJobs = () => {
 
     return (
         <div className="recruiter-table">
-            <h1 className="welcome-message">Welcome, {username}</h1>
-            <h2>Job Listings</h2>
+            <h2>List of Jobs Created</h2>
             {jobs.length === 0 ? (
                 <p>No jobs available.</p>
             ) : (
@@ -66,7 +65,7 @@ const ViewJobs = () => {
                         <tr>
                             <th>Job Title</th>
                             <th>Description</th>
-                            <th>Attachment</th>
+                            <th>Job Description</th>
                             <th>Job Applications</th>
                         </tr>
                     </thead>
@@ -75,9 +74,9 @@ const ViewJobs = () => {
                             <tr key={job.id}>
                                 <td>{job.title}</td>
                                 <td>{job.description}</td>
-                                <td>{job.attachment}</td>
+                                <td><a href={job.attachment} target="_blank" rel="noopener noreferrer">Link to JD</a></td>
                                 <td> <button onClick={handleViewApplications} className="view-applications-btn">
-                                    View Application
+                                    View Applications
                                 </button></td>
                             </tr>
                         ))}

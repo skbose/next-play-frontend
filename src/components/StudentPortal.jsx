@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/StudentPortal.css"
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 
 
 const StudentPortal = () => {
+    const { jobId } = useParams();
+    const navigate = useNavigate();
+    const location = useLocation();
     const [username, setUsername] = useState('');
     const [experienceSummary, setExperienceSummary] = useState('');
     const [resume, setResume] = useState(null);
@@ -10,6 +14,19 @@ const StudentPortal = () => {
     const [contactNo, setContactNo] = useState('');
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
+
+
+    useEffect(() => {
+        const token = localStorage.getItem('accessToken');
+        if (!token) {
+            // Save the current URL including jobId to localStorage
+            localStorage.setItem('redirectAfterLogin', location.pathname);
+            navigate('/login');
+        }
+    }, [navigate, location.pathname]);
+
+
+
 
 
     useEffect(() => {
@@ -35,7 +52,7 @@ const StudentPortal = () => {
         formData.append('contact_no', contactNo);
 
         try {
-            const response = await fetch('http://localhost:8000/portal/apply-job/1/', {
+            const response = await fetch(`http://localhost:8000/portal/apply-job/${jobId}/`, {
                 method: 'POST',
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),

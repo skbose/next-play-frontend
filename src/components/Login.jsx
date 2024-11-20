@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import { Link } from 'react-router-dom';
+import logout from '../utils/auth';
 
 const Login = ({ login }) => {
     const [userId, setUserId] = useState('');
@@ -34,15 +35,33 @@ const Login = ({ login }) => {
                 localStorage.setItem('userType', data.user_type); // recruiter or candidate
                 localStorage.setItem('username', data.username); // Store the recruiter name (username)
 
-                login();
+                // Call login function with user type
+                login(data.user_type);
 
                 alert(`Login successful! Welcome, ${data.username}.`);
 
                 // Redirect based on user type
                 if (data.user_type === 'candidate') {
-                    navigate('/student-portal');
+                    const redirectUrl = localStorage.getItem('redirectAfterLogin');
+                    if (redirectUrl) {
+                        navigate('/student-portal');
+                    } else {
+                        // show an alert to the user
+                        alert("Sorry, you are not allowed to access this page. You'll be logged out.");
+                        // logout and redirect to home
+                        logout();
+                        navigate('/');
+                    }
+
                 } else if (data.user_type === 'recruiter') {
                     navigate('/recruiter-portal');
+                }
+
+                // After successful login
+                const redirectUrl = localStorage.getItem('redirectAfterLogin');
+                if (redirectUrl) {
+                    localStorage.removeItem('redirectAfterLogin'); // Clean up
+                    navigate(redirectUrl);
                 }
             } else {
                 const errorData = await response.json();

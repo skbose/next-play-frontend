@@ -54,7 +54,6 @@ const ApplicationsPage = () => {
 
     return (
         <div className="applications-container">
-            <h1 className="welcome-message">Welcome, {username}</h1>
             <h2>Applications</h2>
             {applications.length === 0 ? (
                 <p>No applications available.</p>
