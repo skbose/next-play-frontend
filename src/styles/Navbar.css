@@ -1,0 +1,88 @@
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Logo icon styling */
+.icon {
+    width: 200px;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+/* Button container styling */
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Button styling */
+.btn {
+    background-color: #309bae;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #247e86;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Remove outline on focus */
+.btn:focus {
+    outline: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .icon {
+        width: 150px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .icon {
+        width: 120px;
+        margin: 0 auto 10px;
+        /* Center the logo with margin */
+    }
+
+    .buttons {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+        text-align: center;
+    }
+}
