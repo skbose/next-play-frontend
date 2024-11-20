@@ -19,30 +19,32 @@ const ApplicationsPage = () => {
     const apiUrl = 'http://localhost:8000/portal/recruiter/applications/';
     const token = localStorage.getItem('accessToken');
 
-    const fetchApplications = async () => {
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json',
-                },
-            });
+    useEffect(() => {
+        const fetchApplications = async () => {
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
 
-            if (response.ok) {
-                const data = await response.json();
-                setApplications(data);
-            } else {
-                throw new Error('Failed to fetch applications');
+                if (response.ok) {
+                    const data = await response.json();
+                    setApplications(data);
+                } else {
+                    throw new Error('Failed to fetch applications');
+                }
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
             }
-        } catch (error) {
-            setError(error.message);
-        } finally {
-            setLoading(false);
-        }
-    };
+        };
 
-    fetchApplications();
+        fetchApplications();
+    }, []);
 
     if (loading) {
         return <div>Loading applications...</div>;

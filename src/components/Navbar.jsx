@@ -7,6 +7,11 @@ const Navbar = ({ isAuthenticated, logout, userType }) => {
     const navigate = useNavigate(); // To navigate on logout
     const isHomePage = location.pathname === '/';
 
+    // check if logged in
+    if (localStorage.getItem('loggedIn') === 'true') {
+        isAuthenticated = true;
+    }
+
     // Determine the home route based on user type
     const getHomeRoute = () => {
         if (!isAuthenticated) return '/';

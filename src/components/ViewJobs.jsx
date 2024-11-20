@@ -16,7 +16,7 @@ const ViewJobs = () => {
             const token = localStorage.getItem('accessToken'); // Get the token from localStorage
 
             try {
-                const response = await fetch('http://localhost:8000/portal/jobs/', {
+                const response = await fetch('http://localhost:8000/portal/recruiter/jobs/', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`, // Include the token in the request headers

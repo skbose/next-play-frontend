@@ -20,6 +20,7 @@ function App() {
   const login = (type) => {
     setIsAuthenticated(true); // Set authentication to true when logged in
     setUserType(type); // Set user type on login
+    localStorage.setItem('loggedIn', true);
   };
 
   const logout = () => {
