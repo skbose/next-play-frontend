@@ -46,6 +46,8 @@ const Login = ({ login }) => {
                     if (redirectUrl) {
                         navigate('/student-portal');
                     } else {
+                        // show an alert to the user
+                        alert("Sorry, you are not allowed to access this page. You'll be logged out.");
                         // logout and redirect to home
                         logout();
                         navigate('/');
