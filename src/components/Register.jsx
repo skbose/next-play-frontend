@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Register.css'; // Import the CSS file for styling
 import { Link, useNavigate } from 'react-router-dom';
-
+import config from '../config';
 const Register = () => {
     const [userId, setUserId] = useState('');
     const [name, setName] = useState('');
@@ -35,7 +35,7 @@ const Register = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:8000/auth/register/', {
+            const response = await fetch(`${config.API_URL}/auth/register/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

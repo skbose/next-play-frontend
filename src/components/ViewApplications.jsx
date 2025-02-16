@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/ViewApplications.css'; // Ensure this path is correct
-
+import config from '../config';
 
 const ApplicationsPage = () => {
     const [applications, setApplications] = useState([]);
@@ -16,7 +16,7 @@ const ApplicationsPage = () => {
         }
     }, []);
 
-    const apiUrl = 'http://localhost:8000/portal/recruiter/applications/';
+    const apiUrl = `${config.API_URL}/portal/recruiter/applications/`;
     const token = localStorage.getItem('accessToken');
 
     useEffect(() => {

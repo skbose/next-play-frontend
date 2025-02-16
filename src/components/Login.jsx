@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import { Link } from 'react-router-dom';
 import logout from '../utils/auth';
-
+import config from '../config';
 const Login = ({ login }) => {
     const [userId, setUserId] = useState('');
     const [password, setPassword] = useState('');
@@ -18,7 +18,7 @@ const Login = ({ login }) => {
         };
 
         try {
-            const response = await fetch('http://localhost:8000/auth/login/', {
+            const response = await fetch(`${config.API_URL}/auth/login/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

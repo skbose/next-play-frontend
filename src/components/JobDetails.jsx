@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './JobDetails.css'; // You'll need to create this CSS file
+import config from '../config';
 
 function JobDetails() {
   const { jobId } = useParams();
@@ -10,7 +11,7 @@ function JobDetails() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const apiUrl = 'http://localhost:8000/portal/job/';
+    const apiUrl = `${config.API_URL}/portal/job/`;
     // TODO: Replace this with your actual API call
     const fetchJobDetails = async () => {
       try {

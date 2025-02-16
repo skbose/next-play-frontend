@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../styles/ViewJobs.css'; // Ensure this path is correct
 import { useNavigate } from 'react-router-dom';
+import config from '../config';
 
 const ViewJobs = () => {
     const location = useLocation();
@@ -16,7 +17,7 @@ const ViewJobs = () => {
             const token = localStorage.getItem('accessToken'); // Get the token from localStorage
 
             try {
-                const response = await fetch('http://localhost:8000/portal/recruiter/jobs/', {
+                const response = await fetch(`${config.API_URL}/portal/recruiter/jobs/`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`, // Include the token in the request headers

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/RecruiterPortal.css";
 import { useNavigate } from 'react-router-dom';
-
+import config from '../config';
 const RecruiterPortal = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -36,7 +36,7 @@ const RecruiterPortal = () => {
         const token = localStorage.getItem('accessToken');
 
         try {
-            const response = await fetch('http://localhost:8000/portal/create-job/', {
+            const response = await fetch(`${config.API_URL}/portal/create-job/`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/StudentPortal.css"
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-
+import config from '../config';
 
 const StudentPortal = () => {
     const { jobId } = useParams();
@@ -52,7 +52,7 @@ const StudentPortal = () => {
         formData.append('contact_no', contactNo);
 
         try {
-            const response = await fetch(`http://localhost:8000/portal/apply-job/${jobId}/`, {
+            const response = await fetch(`${config.API_URL}/portal/apply-job/${jobId}/`, {
                 method: 'POST',
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
